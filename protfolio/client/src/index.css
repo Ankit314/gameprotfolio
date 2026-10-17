@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: #05070d;
+    color: #d6e8ff;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+  }
+
+  canvas {
+    touch-action: none;
+    outline: none;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(8, 14, 24, 0.55);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border: 1px solid rgba(0, 240, 255, 0.18);
+    box-shadow: 0 0 24px rgba(0, 240, 255, 0.08), inset 0 0 24px rgba(138, 43, 255, 0.08);
+  }
+
+  .neon-text {
+    color: #00f0ff;
+    text-shadow: 0 0 6px #00f0ff, 0 0 18px rgba(0, 240, 255, 0.5);
+  }
+
+  .neon-text-pink {
+    color: #ff2bd6;
+    text-shadow: 0 0 6px #ff2bd6, 0 0 18px rgba(255, 43, 214, 0.5);
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-md font-display uppercase tracking-widest text-sm;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.18), rgba(138, 43, 255, 0.18));
+    border: 1px solid rgba(0, 240, 255, 0.5);
+    color: #d6f4ff;
+    transition: all 0.18s ease;
+  }
+  .btn:hover {
+    border-color: #00f0ff;
+    box-shadow: 0 0 18px rgba(0, 240, 255, 0.5);
+    transform: translateY(-1px);
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #00f0ff, #8a2bff);
+    color: #05070d;
+    border-color: transparent;
+  }
+
+  .scanline-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 240, 255, 0.02) 0,
+      rgba(0, 240, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+
+  .crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+    background: #00f0ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00f0ff;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.3);
+  border-radius: 4px;
+}
