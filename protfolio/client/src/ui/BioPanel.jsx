@@ -198,6 +198,14 @@ function Projects() {
                 🔗 Live
               </a>
             )}
+            {!p.links?.github && !p.links?.live && (
+              <span
+                className="ml-auto px-2.5 py-0.5 rounded-full border border-cyan-100/15 text-[11px] font-mono text-cyan-100/50"
+                title="Built at AllHeartWeb/KBS-IT — the codebase is employer-owned and not publicly shareable"
+              >
+                🔒 Private — employer-owned codebase
+              </span>
+            )}
           </div>
         </div>
       ))}
