@@ -1,5 +1,7 @@
 # Ankit Universe — A Playable 3D Portfolio Game
 
+**Live: [ankit-universe.vercel.app](https://ankit-universe.vercel.app)**
+
 A cinematic, story-driven 3D portfolio built as a real game. Walk through the
 worlds of your life — Origin, School, BCA, MCA, MERN Lab, Company Tower,
 Project City, and the Future. Talk to AI-powered NPCs, complete coding quests,
@@ -61,8 +63,8 @@ Open http://localhost:5173 and play.
 
 ## Deployment
 
-- **Client** → Vercel
-- **Server** → Render
-- **DB** → MongoDB Atlas
-
-See `docs/DEPLOY.md` for the full guide (TODO).
+- **Client** → Vercel (live, auto-deploys from `main`)
+- **Server** → not deployed — the client only calls `/api/ai/chat`, which already
+  falls back to scripted dialog when no backend is reachable, so the server is
+  optional. See `docs/DEPLOY.md` if you want real Gemini-powered NPC chat.
+- **DB** → MongoDB Atlas (only needed if you deploy the server)
