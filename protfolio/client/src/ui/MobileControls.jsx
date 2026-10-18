@@ -5,7 +5,6 @@ import { useGame } from '../store/gameStore';
 // of the screen is reserved for camera orbit (handled in CameraRig).
 export default function MobileControls() {
   const setJoystick = useGame((s) => s.setJoystick);
-  const padRef = useRef(null);
   const stickRef = useRef(null);
   const [active, setActive] = useState(false);
   const id = useRef(null);
@@ -18,8 +17,11 @@ export default function MobileControls() {
   }, []);
 
   useEffect(() => {
-    const pad = padRef.current;
-    if (!pad) return;
+    // Gate on isTouch (not padRef): on first mount isTouch is still false,
+    // the component renders null, and padRef is never attached — so this
+    // must re-run once isTouch flips true and the joystick actually exists,
+    // not just once on mount.
+    if (!isTouch) return;
     const onStart = (e) => {
       const t = e.changedTouches[0];
       if (!t || t.clientX > window.innerWidth / 2) return;
@@ -61,14 +63,13 @@ export default function MobileControls() {
       window.removeEventListener('touchend', onEnd);
       window.removeEventListener('touchcancel', onEnd);
     };
-  }, [setJoystick]);
+  }, [setJoystick, isTouch]);
 
   if (!isTouch) return null;
 
   return (
     <>
       <div
-        ref={padRef}
         className={`absolute bottom-6 left-6 w-32 h-32 rounded-full border-2 ${
           active ? 'border-neon-cyan' : 'border-cyan-100/30'
         } bg-black/30 backdrop-blur-md flex items-center justify-center select-none`}
