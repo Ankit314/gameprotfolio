@@ -47,10 +47,13 @@ export default function MainMenu({ onStart }) {
           <button className="btn btn-primary animate-pulse-glow" onClick={launch}>
             ▶ Enter Universe
           </button>
+          <a href="/portfolio" className="btn">
+            📄 Simple Portfolio
+          </a>
           <ResumeButton />
         </div>
         <div className="mt-3 text-[11px] font-mono text-cyan-100/50">
-          Recruiter? Skip the game — grab the PDF straight from the button above.
+          Prefer the essentials? View my professional portfolio.
         </div>
 
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-2 text-xs font-mono text-cyan-100/70">

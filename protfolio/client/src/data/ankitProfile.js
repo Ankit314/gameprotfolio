@@ -123,8 +123,8 @@ export const EDUCATION = [
 export const CONTACT = {
   email: 'ankitkumar26464@gmail.com',
   phone: '+91 9852263803',
-  linkedin: 'linkedin.com/in/ankitkumar',
-  github: 'github.com/ankitkumar',
+  linkedin: 'linkedin.com/in/ankit-kumar-73890a255',
+  github: 'github.com/Ankit314',
   location: 'Chandigarh, India',
 };
 
