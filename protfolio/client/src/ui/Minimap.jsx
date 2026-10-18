@@ -85,7 +85,7 @@ export default function Minimap() {
   }, [worldId, color]);
 
   return (
-    <div className="absolute top-4 right-[19rem] glass rounded-full p-1">
+    <div className="hidden sm:block absolute top-4 right-[19rem] glass rounded-full p-1">
       <canvas ref={canvasRef} width={160} height={160} className="rounded-full" />
     </div>
   );

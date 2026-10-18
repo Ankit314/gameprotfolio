@@ -5,8 +5,6 @@ import { useGame } from '../store/gameStore';
 // of the screen is reserved for camera orbit (handled in CameraRig).
 export default function MobileControls() {
   const setJoystick = useGame((s) => s.setJoystick);
-  const togglePause = useGame((s) => s.togglePause);
-  const toggleUI = useGame((s) => s.toggleUI);
   const padRef = useRef(null);
   const stickRef = useRef(null);
   const [active, setActive] = useState(false);
@@ -85,11 +83,6 @@ export default function MobileControls() {
       <div className="absolute bottom-6 right-6 flex flex-col gap-3">
         <ActionBtn label="E" onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { code: 'KeyE' }))} />
         <ActionBtn label="↑" onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { code: 'Space' }))} />
-      </div>
-
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 flex gap-2">
-        <button className="btn px-3 py-1 text-xs" onClick={() => toggleUI('questLog')}>Quests</button>
-        <button className="btn px-3 py-1 text-xs" onClick={togglePause}>Menu</button>
       </div>
     </>
   );
