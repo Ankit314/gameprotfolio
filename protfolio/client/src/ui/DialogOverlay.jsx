@@ -66,7 +66,7 @@ export default function DialogOverlay() {
         initial={{ y: 80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 80, opacity: 0 }}
-        className="absolute left-1/2 -translate-x-1/2 bottom-8 z-40 w-[min(760px,92vw)] glass rounded-2xl p-5"
+        className="absolute inset-4 m-auto h-fit w-auto max-w-[min(760px,92vw)] max-h-[75vh] overflow-y-auto z-40 glass rounded-2xl p-5"
       >
         <div className="flex items-baseline justify-between mb-2">
           <div className="flex items-baseline gap-2">
