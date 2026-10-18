@@ -1,3 +1,5 @@
+import plugin from 'tailwindcss/plugin';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
@@ -33,5 +35,18 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Custom variant for "this device's primary input is a mouse/trackpad"
+    // (as opposed to touch) — used by the HUD to pick desktop vs. mobile
+    // layout based on actual input capability rather than viewport width,
+    // since a touch device (phone landscape, tablet) can easily be wider
+    // than the `sm:` breakpoint.
+    plugin(({ addVariant }) => {
+      addVariant('pointer-fine', '@media (pointer: fine)');
+      // Short viewports (landscape phones): not enough vertical room for a
+      // top cluster + a separately bottom-anchored cluster to both exist
+      // without the bottom one climbing into the top one.
+      addVariant('short', '@media (max-height: 500px)');
+    }),
+  ],
 };
